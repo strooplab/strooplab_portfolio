@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@
 DEBUG = True
 
 ALLOWED_HOSTS = ['strooplabportfolio-production.up.railway.app',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 'strooplab.up.railway.app']
 
 
 # Application definition
