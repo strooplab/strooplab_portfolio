@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-h)x&0iz*%e8wr#_hw_w$v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['strooplabdev.up.railway.app', '127.0.0.1', 'localhost', 'strooplab.railway.internal']
+ALLOWED_HOSTS = ['strooplabdev.up.railway.app', '127.0.0.1', 'localhost', 'strooplab.railway.internal', '.railway.app']
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'MyPortfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db3.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db3.sqlite3'),
     }
 }
 
