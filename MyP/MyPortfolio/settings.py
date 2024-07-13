@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['strooplabportfolio-production.up.railway.app']
+ALLOWED_HOSTS = ['strooplabportfolio-production.up.railway.app',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -149,6 +150,13 @@ CKEDITOR_FILE_STORAGE = 'MyPortfolio.custom_storage.CustomStorage'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+    'portal_config': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
     },
 }
 CKEDITOR_IMAGE_BACKEND = 'pillow'
