@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['strooplabdev.up.railway.app', '127.0.0.1', 'localhost', 'strooplab.railway.internal', '.railway.app']
+ALLOWED_HOSTS = ['strooplabdev.up.railway.app', '127.0.0.1', 'localhost', 'strooplab.railway.internal', '.up.railway.app']
 
 
 # Application definition
