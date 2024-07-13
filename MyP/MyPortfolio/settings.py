@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,20 +26,21 @@ SECRET_KEY = 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['strooplab.pythonanywhere.com']
+ALLOWED_HOSTS = ['strooplabportfolio-production.up.railway.app']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
+    'ckeditor_uploader',
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor',
-    'main',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'MyPortfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'MyP/db3.sqlite3',
+        'NAME': BASE_DIR / 'db3.sqlite3',
     }
 }
 
@@ -122,16 +123,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'MyP/static'),
-    os.path.join(BASE_DIR, 'MyP/media')
+    os.path.join(BASE_DIR, 'static/'),
+    os.path.join(BASE_DIR, 'media/')
 ]
 
-STATIC_URL = "/MyP/static/"
-STATIC_ROOT = BASE_DIR / "/MyP/staticfiles"
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles/"
 
-MEDIA_URL = "/MyP/media/"
-MEDIA_ROOT = BASE_DIR / "MyP/mediafiles"
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "mediafiles/"
 
 
 # Default primary key field type
@@ -140,3 +143,12 @@ MEDIA_ROOT = BASE_DIR / "MyP/mediafiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+CKEDITOR_CUSTOM_CSS = 'staticfiles/ckeditor/ckeditor.css'
+CKEDITOR_FILE_STORAGE = 'MyPortfolio.custom_storage.CustomStorage'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+CKEDITOR_IMAGE_BACKEND = 'pillow'
