@@ -21,14 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['strooplabportfolio-production.up.railway.app',
-                 '127.0.0.1',
-                 'strooplab.up.railway.app']
+ALLOWED_HOSTS = ['your-app-name.up.railway.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,6 +35,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'main',
+    'gunicorn',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
