@@ -8,12 +8,12 @@ class Skill(models.Model):
     class Meta:
         verbose_name_plural = 'Skills'
         verbose_name = 'Skill'
-    
+
     name = models.CharField(max_length=20, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
     image = models.FileField(blank=True, null=True, upload_to="skills")
     is_key_skill = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return self.name
 
@@ -22,7 +22,7 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name_plural = 'User Profiles'
         verbose_name = 'User Profile'
-    
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
@@ -35,7 +35,7 @@ class UserProfile(models.Model):
 
 
 class ContactProfile(models.Model):
-    
+
     class Meta:
         verbose_name_plural = 'Contact Profiles'
         verbose_name = 'Contact Profile'
@@ -73,7 +73,7 @@ class Media(models.Model):
         verbose_name_plural = 'Media Files'
         verbose_name = 'Media'
         ordering = ["name"]
-	
+
     image = models.ImageField(blank=True, null=True, upload_to="media")
     url = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -149,6 +149,7 @@ class Certificate(models.Model):
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h)x&0iz*%e8wr#_hw_w$vwa+p#x57$xubff0mb3b^b=1#_t0$@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['strooplab.pythonanywhere.com']
 
 
 # Application definition
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'MyPortfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'MyP/db3.sqlite3',      
+        'NAME': BASE_DIR / 'MyP/db3.sqlite3',
     }
 }
 
